@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Manager - Quản lý thời gian</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-clock"></i> Todo Manager</h1>
+            <p class="subtitle">Quản lý thời gian hiệu quả</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Form thêm todo -->
+            <div class="add-todo-section">
+                <form id="todoForm" class="todo-form">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="todoInput" 
+                            placeholder="Nhập công việc cần làm..." 
+                            required
+                        >
+                        <button type="submit" class="add-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Thống kê -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTodos">0</span>
+                    <span class="stat-label">Tổng cộng</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTodos">0</span>
+                    <span class="stat-label">Hoàn thành</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="pendingTodos">0</span>
+                    <span class="stat-label">Đang làm</span>
+                </div>
+            </div>
+
+            <!-- Bộ lọc -->
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i> Tất cả
+                </button>
+                <button class="filter-btn" data-filter="pending">
+                    <i class="fas fa-clock"></i> Đang làm
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <i class="fas fa-check"></i> Hoàn thành
+                </button>
+            </div>
+
+            <!-- Danh sách todo -->
+            <div class="todo-list-section">
+                <ul id="todoList" class="todo-list">
+                    <!-- Todo items sẽ được thêm vào đây bằng JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Nút xóa tất cả -->
+            <div class="clear-section">
+                <button id="clearCompleted" class="clear-btn">
+                    <i class="fas fa-trash"></i> Xóa hoàn thành
+                </button>
+                <button id="clearAll" class="clear-btn danger">
+                    <i class="fas fa-trash-alt"></i> Xóa tất cả
+                </button>
+            </div>
+        </main>
+
+        <!-- Modal chỉnh sửa -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Chỉnh sửa công việc</h3>
+                    <button class="close-btn" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="editForm" class="edit-form">
+                    <input type="text" id="editInput" placeholder="Nhập nội dung mới..." required>
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" id="cancelEdit">Hủy</button>
+                        <button type="submit" class="save-btn">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
